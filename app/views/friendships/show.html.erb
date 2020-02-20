@@ -1,0 +1,9 @@
+<div class="text-center">
+  <h1>Your Friends</h1>
+</div>
+<ul>
+  <% @friendships.each do |friendship| %>
+    <li><strong><%= link_to "#{friendship.friend.username}", user_path(friendship.friend), controller: 'users', style: "color: black;" %></strong> -
+    <i>friend from: <%= friendship.created_at.strftime("%d/%m/%Y")%></i></li>
+  <% end %>
+</ul>
