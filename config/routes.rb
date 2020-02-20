@@ -18,6 +18,8 @@ Rails.application.routes.draw do
     resources :posts
   end
 
+  resources :friendships
+
   resources :sessions
   resources :posts do
     resources :comments
