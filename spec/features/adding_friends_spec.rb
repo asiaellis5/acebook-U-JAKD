@@ -8,7 +8,7 @@ feature 'users can create a friendship' do
     sign_up_two
     click_link 'Home'
     click_link 'uvalente'
-    click_link 'Add Friend'
+    click_button 'Add friend'
     expect(page).to have_content('Friend Added')
   end
 
@@ -16,7 +16,7 @@ feature 'users can create a friendship' do
     sign_up
     create_post
     click_link 'uvalente'
-    click_link 'Add Friend'
+    click_button 'Add friend'
     expect(page).to have_content("You can't be friend with yourself")
   end
 
@@ -27,8 +27,8 @@ feature 'users can create a friendship' do
     sign_up_two
     click_link 'Home'
     click_link 'uvalente'
-    click_link 'Add Friend'
-    click_link 'Add Friend'
+    click_button 'Add friend'
+    click_button 'Add friend'
     expect(page).to have_content('You are already friend')
   end
 
@@ -40,7 +40,7 @@ feature 'users can create a friendship' do
     create_post
     click_link 'Home'
     click_link 'uvalente'
-    click_link 'Add Friend'
+    click_button 'Add friend'
     click_link 'Sign Out'
     click_link 'Sign In'
     fill_in 'session[email]', with: 'umberto@acebook.com'
@@ -48,7 +48,7 @@ feature 'users can create a friendship' do
     click_button 'Sign in'
     click_link 'Home'
     click_link 'asia'
-    click_link 'Add Friend'
+    click_button 'Add friend'
     expect(page).to have_content('You are already friend')
   end
 end

@@ -8,7 +8,7 @@ feature 'users can create a friendship' do
     sign_up_two
     click_link 'Home'
     click_link 'uvalente'
-    click_link 'Add Friend'
+    click_button 'Add friend'
     find('#dropdown03')
     click_link 'Your Friends'
     expect(page).to have_content('uvalente - friend from:')

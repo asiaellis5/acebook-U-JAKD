@@ -12,7 +12,8 @@
   </div>
 <% end %>
 
-<%= link_to 'Add Friend', friendships_path(:friend_id => @user), :method => :post%>
+<%= button_to 'Add friend', friendships_path(:friend_id => @user), :method => :post, class: 'btn btn-primary btn-sm' %>
+<br>
 
 
   <h2 class="h3 mb-3 font-weight-normal">Add a post:</h2>
