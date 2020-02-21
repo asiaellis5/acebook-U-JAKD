@@ -14,8 +14,6 @@ feature 'users can create a friendship' do
 
   scenario 'user try to be friend with himself' do
     sign_up
-    create_post
-    click_link 'uvalente'
     click_button 'Add friend'
     expect(page).to have_content("You can't be friend with yourself")
   end
