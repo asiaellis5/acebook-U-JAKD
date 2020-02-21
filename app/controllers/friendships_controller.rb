@@ -19,7 +19,8 @@ class FriendshipsController < ApplicationController
   end
 
   def show
-    @friendships = Friendship.all
+    @friend_to = Friendship.where(user_id: current_user.id)
+    @friend_from = Friendship.where(friend_id: current_user.id)
   end
 
   private
