@@ -7,9 +7,9 @@ class FriendshipsController < ApplicationController
     @friendship = current_user.friendships.build(friend_id: params[:friend_id])
 
     if current_user.id.to_s == params[:friend_id]
-      flash[:alert] = "You can't be friend with yourself"
+      flash[:alert] = "You can't befriend yourself"
     elsif already_friend?
-      flash[:alert] = 'You are already friend'
+      flash[:alert] = 'You are already friends'
     elsif @friendship.save
       flash[:notice] = 'Friend Added'
     else
