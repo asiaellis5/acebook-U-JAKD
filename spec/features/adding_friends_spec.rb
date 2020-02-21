@@ -11,4 +11,44 @@ feature 'users can create a friendship' do
     click_link 'Add Friend'
     expect(page).to have_content('Friend Added')
   end
+
+  scenario 'user try to be friend with himself' do
+    sign_up
+    create_post
+    click_link 'uvalente'
+    click_link 'Add Friend'
+    expect(page).to have_content("You can't be friend with yourself")
+  end
+
+  scenario 'user try to be friend twice' do
+    sign_up
+    create_post
+    click_link 'Sign Out'
+    sign_up_two
+    click_link 'Home'
+    click_link 'uvalente'
+    click_link 'Add Friend'
+    click_link 'Add Friend'
+    expect(page).to have_content('You are already friend')
+  end
+
+  scenario 'user try to be friend twice from different user' do
+    sign_up
+    create_post
+    click_link 'Sign Out'
+    sign_up_two
+    create_post
+    click_link 'Home'
+    click_link 'uvalente'
+    click_link 'Add Friend'
+    click_link 'Sign Out'
+    click_link 'Sign In'
+    fill_in 'session[email]', with: 'umberto@acebook.com'
+    fill_in 'session[password]', with: 'password'
+    click_button 'Sign in'
+    click_link 'Home'
+    click_link 'asia'
+    click_link 'Add Friend'
+    expect(page).to have_content('You are already friend')
+  end
 end
